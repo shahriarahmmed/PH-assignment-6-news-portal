@@ -1,4 +1,4 @@
-// Dynamic categories
+// Dynamic categories data fetch 
 const loadCategories = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`
     const res = await fetch(url);
@@ -9,7 +9,7 @@ const loadCategories = async () => {
 const displayCategories = data => {
     
     const newsCategories = document.getElementById('news-categories');
-    
+
     data.forEach(category => {
         const categoriesDiv = document.createElement('div');
         categoriesDiv.classList.add('nav-item');
@@ -17,9 +17,10 @@ const displayCategories = data => {
                 <a class="nav-link fw-semibold" href="#"> ${category.category_name}</a>
             `;
         newsCategories.appendChild(categoriesDiv);
-        console.log(newsCategories);
 
     });
 }
+
+
 
 loadCategories()
