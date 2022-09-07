@@ -21,6 +21,19 @@ const displayCategories = data => {
     });
 }
 
+// blogs button click 
+function blogs()  {
+    document.addEventListener('click', function(){
+        window.location.href = 'blogs.html';
+    })
+}
 
+// news button click
+function news()  {
+    document.addEventListener('click', function(){
+        window.location.href = 'index.html';
+        console.log('connect')
+    })
+}
 
 loadCategories()
