@@ -6,6 +6,10 @@ const loadCategories = async () => {
     displayCategories(data.data.news_category);
 }
 
+function allNews() {
+    
+}
+
 const displayCategories = data => {
     
     const newsCategories = document.getElementById('news-categories');
@@ -20,6 +24,7 @@ const displayCategories = data => {
 
     });
 }
+
 
 // blogs button click 
 function blogs()  {
