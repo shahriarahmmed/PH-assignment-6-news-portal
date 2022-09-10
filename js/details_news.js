@@ -6,10 +6,16 @@ const allNews = async (category_id) => {
     
 }
 
+const defaultCategories = async (category_id, category_name) => {
+    const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
+    const res = await fetch(url);
+    const data = await res.json();
+   defaultCategory(data.data)
+}
 
 const displayNewsDetails = data => {
     const newsCard = document.getElementById('news-card');
-
+    newsCard.textContent = '';
     data.forEach(news => {
         const cardBody = document.createElement('div');
         cardBody.classList.add('card');
@@ -22,7 +28,7 @@ const displayNewsDetails = data => {
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">${news.title}</h5>
-                        <p class="card-text">${news.details}</p>
+                        <p class="card-text">${news.details.slice(0, 250)}...</p>
                         <div class="d-flex justify-content-between">
                             <div class="d-inline">
                                 <img src="${news.author.img}" class="rounded-circle" height="30px" width="30px" alt="image">
@@ -51,3 +57,5 @@ const displayNewsDetails = data => {
         newsCard.appendChild(cardBody);
     });
 }
+
+console.log(defaultCategories('08', "All News"));
